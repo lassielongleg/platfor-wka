@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class playercontrol : MonoBehaviour
+{
+    public float moveSpeed = 5;
+    public float runSpeed = 8;
+    public float jumpForce = 300;
+    public Rigidbody2D rb;
+
+
+    void Start()
+    {
+      rb =  GetComponent<Rigidbody2D>();
+    }
+
+    
+    void Update()
+    {
+       float moveInput = Input.GetAxis("Horizontal");
+       if(Input.GetKey(KeyCode.LeftShift) )
+        {
+            rb.velocity = new Vector2(moveInput * runSpeed, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        }
+
+
+        //Debug.Log($"input value: {moveInput}");
+        //rb.velocity = new Vector2(moveInput * moveSpeed,rb.velocity.y);
+        if(Input.GetKeyDown(KeyCode.Space))
+            {
+            rb.AddForce(new Vector2(0, jumpForce));
+        }
+    }
+}
