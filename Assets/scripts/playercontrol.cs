@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class playercontrol : MonoBehaviour
@@ -8,6 +9,8 @@ public class playercontrol : MonoBehaviour
     public float runSpeed = 8;
     public float jumpForce = 300;
     public Rigidbody2D rb;
+    public bool isGrounded; 
+    public GroundCheckers groundCheckers;
 
 
     void Start()
@@ -31,7 +34,7 @@ public class playercontrol : MonoBehaviour
 
         //Debug.Log($"input value: {moveInput}");
         //rb.velocity = new Vector2(moveInput * moveSpeed,rb.velocity.y);
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && groundCheckers.isGrounded)
             {
             rb.AddForce(new Vector2(0, jumpForce));
         }
