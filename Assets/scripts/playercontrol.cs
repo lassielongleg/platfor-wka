@@ -11,16 +11,20 @@ public class playercontrol : MonoBehaviour
     public Rigidbody2D rb;
     public bool isGrounded; 
     public GroundCheckers groundCheckers;
+    public playrhealh health;
 
 
     void Start()
     {
       rb =  GetComponent<Rigidbody2D>();
+        health = GetComponent<playrhealh>();
     }
 
     
     void Update()
     {
+        if (health.isDead) return;
+
        float moveInput = Input.GetAxis("Horizontal");
        if(Input.GetKey(KeyCode.LeftShift) )
         {
