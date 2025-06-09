@@ -645,6 +645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1270647489}
+  - component: {fileID: 1270647495}
   - component: {fileID: 1270647488}
   - component: {fileID: 1270647491}
   - component: {fileID: 1270647490}
@@ -807,6 +808,8 @@ MonoBehaviour:
   isGrounded: 0
   groundCheckers: {fileID: 1510745448}
   health: {fileID: 0}
+  anim: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &1270647493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,7 +836,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 100
+  anim: {fileID: 0}
   isDead: 0
+--- !u!95 &1270647495
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270647487}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 209a71ef037e27c41b99b77e136b8783, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1382826441
 GameObject:
   m_ObjectHideFlags: 0

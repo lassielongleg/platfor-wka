@@ -12,12 +12,16 @@ public class playercontrol : MonoBehaviour
     public bool isGrounded; 
     public GroundCheckers groundCheckers;
     public playrhealh health;
+    public Animator anim;
+    public SpriteRenderer spriteRenderer;
 
 
     void Start()
     {
       rb =  GetComponent<Rigidbody2D>();
         health = GetComponent<playrhealh>();
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     
@@ -26,6 +30,23 @@ public class playercontrol : MonoBehaviour
         if (health.isDead) return;
 
        float moveInput = Input.GetAxis("Horizontal");
+        if (moveInput >= 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (moveInput < 0)
+        {  
+            spriteRenderer.flipX = true;
+        }
+
+        if(moveInput != 0)
+        {
+            anim.SetBool("isRun",true);
+        }
+        else
+        {
+            anim.SetBool("isRun",false);
+        }
        if(Input.GetKey(KeyCode.LeftShift) )
         {
             rb.velocity = new Vector2(moveInput * runSpeed, rb.velocity.y);
